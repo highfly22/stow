@@ -154,10 +154,6 @@ func newS3Client(config stow.Config, region string) (client *s3.S3, endpoint str
 	}
 
 	endpoint, ok := config.Config(ConfigEndpoint)
-	if ok {
-		awsConfig.WithEndpoint(endpoint).
-			WithS3ForcePathStyle(true)
-	}
 
 	disableSSL, ok := config.Config(ConfigDisableSSL)
 	if ok && disableSSL == "true" {
